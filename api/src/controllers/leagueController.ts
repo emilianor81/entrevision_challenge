@@ -32,8 +32,8 @@ export const getPlayersController = async (req: Request, res: Response) => {
   const leagueCode = req.query.leagueCode as string;
   const teamId = req.query.teamId as string;
   try {
-    const players = await getPlayers(leagueCode, teamId);
-    res.status(200).send(players);
+    const result = await getPlayers(leagueCode, teamId);
+    res.status(200).send(result);
   } catch (error) {
     const errorMessage = (error as Error).message || 'An unknown error occurred';
     res.status(500).send({ error: errorMessage });

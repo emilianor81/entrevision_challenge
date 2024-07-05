@@ -128,7 +128,7 @@ export const getPlayers = async (leagueCode?: string, teamId?: string) => {
       throw new Error('Team not found');
     }
 
-    return team.players || [];
+    return { team, players: team.players || [] };
   } else if (leagueCode) {
     const competition = await Competition.findOne({
       where: { code: leagueCode },
@@ -146,6 +146,3 @@ export const getPlayers = async (leagueCode?: string, teamId?: string) => {
     throw new Error('Either leagueCode or teamId must be provided');
   }
 };
-
-
-
