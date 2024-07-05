@@ -1,12 +1,14 @@
 <div class="container">
   <h2>Team List</h2>
   <div class="input-group">
-    <input class="input" [(ngModel)]="leagueCode" placeholder="Enter League Code">
+    <label for="leagueCode">League Code:</label>
+    <input class="input" id="leagueCode" [(ngModel)]="leagueCode" placeholder="Enter League Code">
     <button class="button" (click)="loadTeams()">Load Teams</button>
   </div>
 
   <div class="input-group">
-    <input class="input" [(ngModel)]="filter" placeholder="Filter Teams" (input)="filterTeams()">
+    <label for="filter">Filter Teams:</label>
+    <input class="input" id="filter" [(ngModel)]="filter" placeholder="Filter Teams" (input)="filterTeams()">
   </div>
 
   <ul class="team-list">
