@@ -120,22 +120,31 @@ export const getTeams = async (leagueCode: string) => {
   return competition.teams || [];
 };
 
-export const getPlayers = async (leagueCode: string, teamId?: string) => {
-  const competition = await Competition.findOne({ where: { code: leagueCode }, include: [{ model: Team, as: 'teams', include: [{ model: Player, as: 'players' }] }] });
-
-  if (!competition) {
-    throw new Error('League not found');
-  }
-
-  const teams = competition.teams || [];
-
+export const getPlayers = async (leagueCode?: string, teamId?: string) => {
   if (teamId) {
-    const team = teams.find(t => t.id === parseInt(teamId));
-    return team ? team.players || [] : [];
-  }
+    const team = await Team.findOne({ where: { id: parseInt(teamId, 10) }, include: [{ model: Player, as: 'players' }] });
 
-  const players = teams.flatMap(team => team.players || []);
-  return players;
+    if (!team) {
+      throw new Error('Team not found');
+    }
+
+    return team.players || [];
+  } else if (leagueCode) {
+    const competition = await Competition.findOne({
+      where: { code: leagueCode },
+      include: [{ model: Team, as: 'teams', include: [{ model: Player, as: 'players' }] }]
+    });
+
+    if (!competition) {
+      throw new Error('League not found');
+    }
+
+    const teams = competition.teams || [];
+    const players = teams.flatMap(team => team.players || []);
+    return players;
+  } else {
+    throw new Error('Either leagueCode or teamId must be provided');
+  }
 };
 
 
