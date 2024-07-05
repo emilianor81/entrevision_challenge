@@ -1,15 +1,17 @@
-<div>
+<div class="container">
   <h2>Team List</h2>
-  <input [(ngModel)]="leagueCode" placeholder="Enter League Code">
-  <button (click)="loadTeams()">Load Teams</button>
-</div>
+  <div class="input-group">
+    <input class="input" [(ngModel)]="leagueCode" placeholder="Enter League Code">
+    <button class="button" (click)="loadTeams()">Load Teams</button>
+  </div>
 
-<div>
-  <input [(ngModel)]="filter" placeholder="Filter Teams" (input)="filterTeams()">
-</div>
+  <div class="input-group">
+    <input class="input" [(ngModel)]="filter" placeholder="Filter Teams" (input)="filterTeams()">
+  </div>
 
-<ul>
-  <li *ngFor="let team of filteredTeams">
-    <a [routerLink]="['/teams', team.id]">{{ team.name }}</a>
-  </li>
-</ul>
+  <ul class="team-list">
+    <li *ngFor="let team of filteredTeams" class="team-item">
+      <a [routerLink]="['/teams', team.id]" class="team-link">{{ team.name }}</a>
+    </li>
+  </ul>
+</div>
