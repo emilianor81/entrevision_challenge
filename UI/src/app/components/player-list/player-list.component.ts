@@ -25,9 +25,14 @@ export class PlayerListComponent implements OnInit {
   }
 
   loadPlayers() {
-    this.footballService.getPlayers(this.teamId).subscribe(data => {
-      this.players = data.players;
-      this.team = data.team;
-    });
+    this.footballService.getPlayers(this.teamId).subscribe(
+      data => {
+        this.players = data.players;
+        this.team = data.team;
+      },
+      error => {
+        console.error('Error fetching players:', error);
+      }
+    );
   }
 }
