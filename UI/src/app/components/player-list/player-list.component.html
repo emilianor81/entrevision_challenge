@@ -1,0 +1,19 @@
+ <div *ngIf="team">
+    <h2>{{ team.name }}</h2>
+    <p><strong>Short Name:</strong> {{ team.shortName }}</p>
+    <p><strong>Crest:</strong> <img [src]="team.crest" alt="{{ team.name }}"></p>
+  </div>
+  
+  <div>
+    <h3>Players</h3>
+    <ul>
+      <li *ngFor="let player of players">
+        <p><strong>Name:</strong> {{ player.name }}</p>
+        <p><strong>Position:</strong> {{ player.position }}</p>
+        <p><strong>Date of Birth:</strong> {{ player.dateOfBirth }}</p>
+        <p><strong>Nationality:</strong> {{ player.nationality }}</p>
+      </li>
+    </ul>
+  </div>
+  
+  

@@ -1,0 +1,15 @@
+<div>
+  <h2>Team List</h2>
+  <input [(ngModel)]="leagueCode" placeholder="Enter League Code">
+  <button (click)="loadTeams()">Load Teams</button>
+</div>
+
+<div>
+  <input [(ngModel)]="filter" placeholder="Filter Teams" (input)="filterTeams()">
+</div>
+
+<ul>
+  <li *ngFor="let team of filteredTeams">
+    <a [routerLink]="['/teams', team.id]">{{ team.name }}</a>
+  </li>
+</ul>
