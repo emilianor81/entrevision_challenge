@@ -1,0 +1,6 @@
+# Ignore node_modules in both api and ui directories
+api/node_modules/
+ui/node_modules/
+
+.env
+borrador.ts
