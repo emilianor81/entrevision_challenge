@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router  } from '@angular/router';
 import { FootballService } from '../../services/football.service';
 import { CommonModule } from '@angular/common';
 
@@ -13,9 +13,11 @@ export class PlayerListComponent implements OnInit {
   teamId: number = 0;
   team: any;
   players: any[] = [];
+  loading: boolean = false;
 
   constructor(
     private route: ActivatedRoute,
+    private router: Router,
     private footballService: FootballService
   ) {}
 
@@ -29,10 +31,16 @@ export class PlayerListComponent implements OnInit {
       data => {
         this.players = data.players;
         this.team = data.team;
+        this.loading = false;
       },
       error => {
         console.error('Error fetching players:', error);
+        this.loading = false;
       }
     );
+  }
+
+  goBack() {
+    this.router.navigate(['/teams']);
   }
 }
