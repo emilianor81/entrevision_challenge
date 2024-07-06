@@ -112,12 +112,7 @@ export const importLeague = async (leagueCode: string) => {
 
 export const getTeams = async (leagueCode: string) => {
   const competition = await Competition.findOne({ where: { code: leagueCode }, include: [{ model: Team, as: 'teams' }] });
-
-  if (!competition) {
-    throw new Error('League not found');
-  }
-
-  return competition.teams || [];
+  return competition ? competition.teams || [] : [];
 };
 
 export const getPlayers = async (leagueCode?: string, teamId?: string) => {
