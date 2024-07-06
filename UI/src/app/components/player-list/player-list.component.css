@@ -1,0 +1,57 @@
+
+.container {
+  margin: 20px;
+}
+
+.team-card {
+  text-align: center;
+  margin-bottom: 20px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  background-color: #f9f9f9;
+}
+
+.team-name {
+  font-size: 2em; 
+  margin-bottom: 10px;
+}
+
+.team-crest {
+  width: 150px; 
+  height: auto;
+}
+
+.players-title {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.player-cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: flex-start; 
+}
+
+.player-card {
+  flex: 1 1 200px; 
+  max-width: 200px; 
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  padding: 15px;
+  background-color: #ffffff;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.player-name {
+  text-align: center;
+  background-color: #e0e0e0;
+  padding: 10px;
+  border-radius: 5px 5px 0 0;
+}
+
+.player-card p {
+  margin: 5px 0;
+  text-align: left;
+}

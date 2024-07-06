@@ -8,6 +8,7 @@ import { CommonModule } from '@angular/common';
   standalone: true,
   imports: [CommonModule],
   templateUrl: './player-list.component.html',
+  styleUrls: ['./player-list.component.css'] 
 })
 export class PlayerListComponent implements OnInit {
   teamId: number = 0;

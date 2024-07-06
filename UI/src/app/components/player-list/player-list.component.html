@@ -4,21 +4,21 @@
   Loading players...
 </div>
 
-<div class="container" *ngIf="!loading && team">
-  <h2>{{ team.name }}</h2>
+<div class="team-card container" *ngIf="!loading && team">
+  <h2 class="team-name">{{ team.name }}</h2>
   <img [src]="team.crest" alt="{{ team.name }} crest" class="team-crest"/>
 </div>
 
 <div class="container" *ngIf="!loading && players.length > 0; else noPlayers">
-  <h3>Players</h3>
-  <ul class="player-list">
-    <li *ngFor="let player of players" class="player-item">
-      <h4>{{ player.name }}</h4>
+  <h3 class="players-title">Players</h3>
+  <div class="player-cards">
+    <div class="player-card" *ngFor="let player of players">
+      <h4 class="player-name">{{ player.name }}</h4>
       <p>Position: {{ player.position }}</p>
       <p>Date of Birth: {{ player.dateOfBirth }}</p>
       <p>Nationality: {{ player.nationality }}</p>
-    </li>
-  </ul>
+    </div>
+  </div>
 </div>
 
 <ng-template #noPlayers>
