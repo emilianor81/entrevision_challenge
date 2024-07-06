@@ -1,9 +1,15 @@
+<!-- src/app/components/team-list/team-list.component.html -->
 <div class="container">
   <h2>Team List</h2>
   <div class="input-group">
     <label for="leagueCode">League Code:</label>
-    <input class="input" id="leagueCode" [(ngModel)]="leagueCode" placeholder="Enter League Code">
-    <button class="button" (click)="loadTeams()">Load Teams</button>
+    <input class="input" id="leagueCode" [(ngModel)]="leagueCode" (input)="validateInput()" placeholder="Enter League Code">
+    <button class="button" 
+            (click)="loadTeams()" 
+            [disabled]="!isValidInput"
+            [ngClass]="{ 'enabled': isValidInput, 'disabled': !isValidInput }">
+      Load Teams
+    </button>
   </div>
 
   <div class="input-group">

@@ -1,0 +1,18 @@
+.button {
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+  .button.enabled {
+    background-color: blue;
+    color: white;
+  }
+  
+  .button.disabled {
+    background-color: lightgray;
+    color: darkgray;
+    cursor: not-allowed;
+  }
+  
