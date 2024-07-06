@@ -28,6 +28,7 @@ export class PlayerListComponent implements OnInit {
   }
 
   loadPlayers() {
+    this.loading = true;
     this.footballService.getPlayers(this.teamId).subscribe(
       data => {
         this.players = data.players;
