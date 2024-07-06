@@ -15,6 +15,7 @@ borrador.ts
 *.launch
 .vscode/*
 .history/*
+dist/
 
 # Miscellaneous
 /.angular
