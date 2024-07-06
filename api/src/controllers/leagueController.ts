@@ -17,7 +17,6 @@ export const importLeagueController = async (req: Request, res: Response) => {
 };
 //TODO: PONER LIMITE Y PAGINADO
 export const getTeamsController = async (req: Request, res: Response) => {
-  console.log('Entro al getTeams');
   const leagueCode = req.query.leagueCode as string;
   try {
     const teams = await getTeams(leagueCode);
