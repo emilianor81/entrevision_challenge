@@ -4,13 +4,14 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import Swal from 'sweetalert2';
+import { StateService } from '../../services/state.service';
 
 @Component({
   selector: 'app-team-list',
   standalone: true,
   imports: [CommonModule, FormsModule, RouterModule],
   templateUrl: './team-list.component.html',
-  styleUrls: ['./team-list.component.css']  
+  styleUrls: ['./team-list.component.css']
 })
 export class TeamListComponent implements OnInit {
   leagueCode: string = '';
@@ -19,9 +20,18 @@ export class TeamListComponent implements OnInit {
   filter: string = '';
   isValidInput: boolean = false;
 
-  constructor(private footballService: FootballService) { }
+  constructor(private footballService: FootballService, private stateService: StateService) { }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    const savedTeams = this.stateService.getTeams();
+    const savedLeagueCode = this.stateService.getLeagueCode();
+
+    if (savedTeams.length > 0) {
+      this.teams = savedTeams;
+      this.filteredTeams = savedTeams;
+      this.leagueCode = savedLeagueCode;
+    }
+  }
 
   validateInput() {
     this.isValidInput = this.leagueCode.length >= 2;
@@ -41,6 +51,7 @@ export class TeamListComponent implements OnInit {
       } else {
         this.teams = data;
         this.filteredTeams = data;
+        this.stateService.setTeams(data, this.leagueCode); 
       }
     }, error => {
       Swal.fire({
