@@ -28,6 +28,9 @@ export class TeamListComponent implements OnInit {
   }
 
   loadTeams() {
+    this.teams = [];
+    this.filteredTeams = [];
+    
     this.footballService.getTeams(this.leagueCode).subscribe(data => {
       if (data.length === 0) {
         Swal.fire({
