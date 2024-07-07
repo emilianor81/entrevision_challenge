@@ -15,7 +15,7 @@ export const importLeagueController = async (req: Request, res: Response) => {
     res.status(500).send({ error: errorMessage });
   }
 };
-//TODO: PONER LIMITE Y PAGINADO
+
 export const getTeamsController = async (req: Request, res: Response) => {
   const leagueCode = req.query.leagueCode as string;
   try {
@@ -26,7 +26,7 @@ export const getTeamsController = async (req: Request, res: Response) => {
     res.status(500).send({ error: errorMessage });
   }
 };
-//TODO: PONER LIMITE Y PAGINADO
+
 export const getPlayersController = async (req: Request, res: Response) => {
   const leagueCode = req.query.leagueCode as string;
   const teamId = req.query.teamId as string;
