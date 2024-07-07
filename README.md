@@ -18,6 +18,7 @@ This project consists of a web application that allows importing football league
 - [Technical Decisions](#technical-decisions)
 - [Application Usage](#application-usage)
 - [Considerations](#considerations)
+- [Author](#author)
 
 
 
@@ -125,7 +126,7 @@ docker-compose up --build
 
 
 
-# Project Structure
+## Project Structure
 
 ```
 football-data-project/
@@ -188,7 +189,7 @@ football-data-project/
 
 
 
-# Note on Technologies Used
+## Note on Technologies Used
 
 The technologies and tools used were specified in the challenge to ensure compliance with the project's requirements.
 
@@ -203,11 +204,16 @@ View Players: By selecting a team, you can view the team's details and player li
 
 
 
-# Considerations
+## Considerations
 
 * Error Handling: The application handles errors appropriately by displaying clear messages to the user.
 
 * Rate Limiting: The free API from football-data.org has rate limiting. Delays and retries were implemented to handle these limitations.
 
 * Documentation: Ensure to review the football-data.org API documentation to understand the limitations and additional features.
+
+
+## Author
+
+This project was created by Emiliano Rodriguez. You can contact me at [emilianor81@gmail.com](mailto:emilianor81@gmail.com).
 
