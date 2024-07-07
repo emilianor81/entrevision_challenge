@@ -13,6 +13,7 @@ This project consists of a web application that allows importing football league
 - [Environment Configuration](#environment-configuration)
 - [Database Initialization](#database-initialization)
 - [Installation and Execution](#installation-and-execution)
+- [Docker Setup](#docker-setup)
 - [Project Structure](#project-structure)
 - [Technical Decisions](#technical-decisions)
 - [Application Usage](#application-usage)
@@ -100,6 +101,25 @@ npm run start
 ```
 
 The application will be available at http://localhost:4200.
+
+
+## Docker Setup
+
+You can use Docker to run both the backend and frontend services. Follow these steps:
+
+### Building and Running the Containers
+
+1. Build and start the Docker containers:
+
+```bash
+docker-compose up --build
+```
+
+2. The backend will be available at http://localhost:3000.
+
+3. The frontend will be available at http://localhost:4200.
+
+
 
 
 
